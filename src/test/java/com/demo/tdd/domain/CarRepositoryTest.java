@@ -23,8 +23,9 @@ public class CarRepositoryTest {
     @Test
     public void findByName_returnsCar() throws Exception {
         Car savedCar = entityManager.persistFlushFind(new Car("prius", "hybrid"));
+        System.out.println("------>  "+savedCar.toString());
         Car car = repository.findByName("prius");
-
+        System.out.println("------>  "+car.toString());
         Assertions.assertThat(car.getName()).isEqualTo(savedCar.getName());
         Assertions.assertThat(car.getType()).isEqualTo(savedCar.getType());
     }
